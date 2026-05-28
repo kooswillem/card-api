@@ -21,22 +21,19 @@ try {
     
     // 4. EXECUTE THE QUERY
     $stmt = $pdo->query('SELECT 
-        MediaIndex,
-        MediumType,
-        Printed1,
-        Printed2,
-        Printed3,
-        Printed4,
-        Printed5,
-        Printed6,
-        Printed7,
-        Brand,
-        Color,
-        Sample1,
-        Sample2,
-        Sample3,
-        Sample4
-        FROM Media'
+        SampleDBIndex,
+        SampleIndex,
+        SampleBitsNumber,
+        SampleBitsTotal,
+        SampleTechCode,
+        SampleCommCode,
+        SampleOutput,
+        SampleHex,
+        SampleFCS,
+        SampleFormatNotes,
+        SampleTypeID,
+        SampleConfigName
+        FROM Sample'
     );
     $records = $stmt->fetchAll();
             
@@ -70,21 +67,18 @@ try {
     <table>
         <thead>
             <tr>
-                <th>MediaIndex</th>
-                <th>MediumType</th>
-                <th>Printed1</th>
-                <th>Printed2</th>
-                <th>Printed3</th>
-                <th>Printed4</th>
-                <th>Printed5</th>
-                <th>Printed6</th>
-                <th>Printed7</th>
-                <th>Brand</th>
-                <th>Color</th>
-                <th>Sample1</th>
-                <th>Sample2</th>
-                <th>Sample3</th>
-                <th>Sample4</th>
+                <th>SampleDBIndex</th>
+                <th>SampleIndex</th>
+                <th>SampleBitsNumber</th>
+                <th>SampleBitsTotal</th>
+                <th>SampleTechCode</th>
+                <th>SampleCommCode</th>
+                <th>SampleOutput</th>
+                <th>SampleHex</th>
+                <th>SampleFCS</th>
+                <th>SampleFormatNotes</th>
+                <th>SampleTypeID</th>
+                <th>SampleConfigName</th>
             </tr>
         </thead>
         <tbody>
@@ -92,21 +86,18 @@ try {
                 <?php foreach ($records as $row): ?>
                     <tr>
                         <!-- htmlspecialchars prevents XSS attacks by sanitizing output -->
-                        <td><?= htmlspecialchars($row['MediaIndex']) ?></td>
-                        <td><?= htmlspecialchars($row['MediumType']) ?></td>
-                        <td><?= htmlspecialchars($row['Printed1']) ?></td>
-                        <td><?= htmlspecialchars($row['Printed2']) ?></td>
-                        <td><?= htmlspecialchars($row['Printed3']) ?></td>
-                        <td><?= htmlspecialchars($row['Printed4']) ?></td>
-                        <td><?= htmlspecialchars($row['Printed5']) ?></td>
-                        <td><?= htmlspecialchars($row['Printed6']) ?></td>
-                        <td><?= htmlspecialchars($row['Printed7']) ?></td>
-                        <td><?= htmlspecialchars($row['Brand']) ?></td>
-                        <td><?= htmlspecialchars($row['Color']) ?></td>
-                        <td><?= htmlspecialchars($row['Sample1']) ?></td>
-                        <td><?= htmlspecialchars($row['Sample2']) ?></td>
-                        <td><?= htmlspecialchars($row['Sample3']) ?></td>
-                        <td><?= htmlspecialchars($row['Sample4']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleDBIndex']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleIndex']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleBitsNumber']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleBitsTotal']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleTechCode']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleCommCode']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleOutput']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleHex']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleFCS']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleFormatNotes']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleTypeID']) ?></td>
+                        <td><?= htmlspecialchars($row['SampleConfigName']) ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
