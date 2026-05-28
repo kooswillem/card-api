@@ -29,6 +29,7 @@ try {
         Printed4,
         Printed5,
         Printed6,
+        Printed7,
         Brand,
         Color,
         Sample1,
@@ -77,6 +78,7 @@ try {
                 <th>Printed4</th>
                 <th>Printed5</th>
                 <th>Printed6</th>
+                <th>Printed7</th>
                 <th>Brand</th>
                 <th>Color</th>
                 <th>Sample1</th>
@@ -98,6 +100,7 @@ try {
                         <td><?= htmlspecialchars($row['Printed4']) ?></td>
                         <td><?= htmlspecialchars($row['Printed5']) ?></td>
                         <td><?= htmlspecialchars($row['Printed6']) ?></td>
+                        <td><?= htmlspecialchars($row['Printed7']) ?></td>
                         <td><?= htmlspecialchars($row['Brand']) ?></td>
                         <td><?= htmlspecialchars($row['Color']) ?></td>
                         <td><?= htmlspecialchars($row['Sample1']) ?></td>
@@ -108,7 +111,7 @@ try {
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="4" class="no-data">No records found in the database.</td>
+                    <td colspan="15" class="no-data">No records found in the database.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
