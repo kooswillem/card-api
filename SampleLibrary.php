@@ -67,18 +67,17 @@ try {
     <table>
         <thead>
             <tr>
-                <th>SampleDBIndex</th>
-                <th>SampleIndex</th>
-                <th>SampleBitsNumber</th>
-                <th>SampleBitsTotal</th>
-                <th>SampleTechCode</th>
-                <th>SampleCommCode</th>
-                <th>SampleOutput</th>
-                <th>SampleHex</th>
-                <th>SampleFCS</th>
-                <th>SampleFormatNotes</th>
-                <th>SampleTypeID</th>
-                <th>SampleConfigName</th>
+                <th>Index</th>
+                <th>Bits Number</th>
+                <th>Bits Total</th>
+                <th>Tech Code</th>
+                <th>Comm Code</th>
+                <th>Output</th>
+                <th>Hex</th>
+                <th>FCS</th>
+                <th>Format Notes</th>
+                <th>Type ID</th>
+                <th>Config Name</th>
             </tr>
         </thead>
         <tbody>
@@ -86,7 +85,6 @@ try {
                 <?php foreach ($records as $row): ?>
                     <tr>
                         <!-- htmlspecialchars prevents XSS attacks by sanitizing output -->
-                        <td><?= htmlspecialchars($row['SampleDBIndex']) ?></td>
                         <td><?= htmlspecialchars($row['SampleIndex']) ?></td>
                         <td><?= htmlspecialchars($row['SampleBitsNumber']) ?></td>
                         <td><?= htmlspecialchars($row['SampleBitsTotal']) ?></td>
