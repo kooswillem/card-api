@@ -65,7 +65,7 @@ try {
 </head>
 <body>
 
-    <h1>All Database Records</h1>
+    <h1>All Database Records - Media</h1>
 
     <table>
         <thead>

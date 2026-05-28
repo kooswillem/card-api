@@ -20,6 +20,7 @@
         $pdo->query("CREATE TABLE Sample (
             SampleDBIndex INT AUTO_INCREMENT PRIMARY KEY,
             SampleIndex INT NOT NULL,
+            SampleParentID INT NOT NULL,
             SampleBitsNumber VARCHAR(255),
             SampleBitsTotal VARCHAR(255),
             SampleTechCode VARCHAR(255) NOT NULL,
@@ -31,12 +32,11 @@
             SampleTypeID VARCHAR(255),
             SampleConfigName VARCHAR(255)
         )");
-
-/*        
+      
         $pdo->query("DROP TABLE IF EXISTS Configuration");
         $pdo->query("CREATE TABLE Configuration (
             ConfigDBIndex INT AUTO_INCREMENT PRIMARY KEY,
-            ConfigName VARCHAR(255) NOT NULL,
+            ConfigName VARCHAR(255) NOT NULL
         )");
         $pdo->query("DROP TABLE IF EXISTS MediumType");
         $pdo->query("CREATE TABLE MediumType (
@@ -98,7 +98,7 @@
         )");
         */
         // 4. EXECUTE THE QUERY
-        /*
+    
         $pdo->exec("INSERT INTO Brand (BrandName) VALUES ('Suica')");
         $pdo->exec("INSERT INTO Brand (BrandName) VALUES ('Sodexo')");
         $pdo->exec("INSERT INTO Brand (BrandName) VALUES ('HID Global')");
@@ -243,7 +243,22 @@
             VALUES ('Thin Card', 'ISO/IEC 7810 85.6mm x 54mm x 0.76mm','THIN')");
         $pdo->exec("INSERT INTO MediumType (MediumTypeName, MediumTypeDescription, MediumTypeCode) 
             VALUES ('Tube', '','TUBE')");
-        /*
+        $pdo->exec("INSERT INTO Sample(SampleIndex, SampleParentID, SampleBitsNumber, SampleBitsTotal, SampleTechCode, SampleCommCode, 
+            SampleOutput, SampleHex, SampleFCS, SampleFormatNotes, SampleTypeID, SampleConfigName) 
+            VALUES ('001', 1, '32','32', 'MCLA', 'HIFR', '1512715056', '5A2A3330', 'No', '', '2', 'GEN')");
+        $pdo->exec("INSERT INTO Sample(SampleIndex, SampleParentID, SampleBitsNumber, SampleBitsTotal, SampleTechCode, SampleCommCode, 
+            SampleOutput, SampleHex, SampleFCS, SampleFormatNotes, SampleTypeID, SampleConfigName) 
+            VALUES ('002', 2, '32','32', 'MCLA', 'HIFR', '3391543194', 'CA26D79A', 'No', '', '2', 'GEN')");
+        $pdo->exec("INSERT INTO Sample(SampleIndex, SampleParentID, SampleBitsNumber, SampleBitsTotal, SampleTechCode, SampleCommCode, 
+            SampleOutput, SampleHex, SampleFCS, SampleFormatNotes, SampleTypeID, SampleConfigName) 
+            VALUES ('003', 3, '32','32', 'MCLA', 'HIFR', '33682507518', 'DB7E9AFE', 'No', '', '2', 'GEN')");
+        $pdo->exec("INSERT INTO Sample(SampleIndex, SampleParentID, SampleBitsNumber, SampleBitsTotal, SampleTechCode, SampleCommCode, 
+            SampleOutput, SampleHex, SampleFCS, SampleFormatNotes, SampleTypeID, SampleConfigName) 
+            VALUES ('004', 4, '32','32', 'MCLA', 'HIFR', '1249254101959808', 'A0239F9A', 'No', '', '2', 'GEN')");
+        $pdo->exec("INSERT INTO Sample(SampleIndex, SampleParentID, SampleBitsNumber, SampleBitsTotal, SampleTechCode, SampleCommCode, 
+            SampleOutput, SampleHex, SampleFCS, SampleFormatNotes,.SampleTypeID,SampleConfigName) 
+            VALUES ('005', 5, '32','32', 'MCLA', 'HIFR', '1225242266396032', '045A59F20D6580', 'No', 'DESFire EV1 (V01.00) 8K', '22', 'GEN')");
+
         $pdo->exec("INSERT INTO Media (
             MediaIndex,
             MediumType,
@@ -273,14 +288,160 @@
             '', 
             '', 
             '', 
-            '',
-            '', 
+            'Cardtech',
+            'White', 
             1, 
             NULL, 
             NULL, 
             NULL
         )");
-*/
+
+        $pdo->exec("INSERT INTO Media (
+            MediaIndex,
+            MediumType,
+            PrimarySample,
+            CISCode,
+            Printed1,
+            Printed2,
+            Printed3,
+            Printed4,
+            Printed5, 
+            Printed6, 
+            Printed7, 
+            Brand, 
+            Color, 
+            Sample1, 
+            Sample2, 
+            Sample3, 
+            Sample4) VALUES (
+            2, 
+            'Thin Card', 
+            1, 
+            '05-2',
+            '2597791434', 
+            'HF01.02', 
+            '', 
+            '', 
+            '', 
+            '', 
+            '', 
+            'Unknown',
+            'White', 
+            2, 
+            NULL, 
+            NULL, 
+            NULL
+        )");
+
+        $pdo->exec("INSERT INTO Media (
+            MediaIndex,
+            MediumType,
+            PrimarySample,
+            CISCode,
+            Printed1,
+            Printed2,
+            Printed3,
+            Printed4,
+            Printed5, 
+            Printed6, 
+            Printed7, 
+            Brand, 
+            Color, 
+            Sample1, 
+            Sample2, 
+            Sample3, 
+            Sample4) VALUES (
+            3, 
+            'Thin Card', 
+            1, 
+            'None',
+            'DB7E9AFE', 
+            'Mifare Classic 13,56', 
+            'HF01.03', 
+            '', 
+            '', 
+            '', 
+            '', 
+            'Inepro',
+            'Brand Design', 
+            3, 
+            NULL, 
+            NULL, 
+            NULL
+        )");
+
+        $pdo->exec("INSERT INTO Media (
+            MediaIndex,
+            MediumType,
+            PrimarySample,
+            CISCode,
+            Printed1,
+            Printed2,
+            Printed3,
+            Printed4,
+            Printed5, 
+            Printed6, 
+            Printed7, 
+            Brand, 
+            Color, 
+            Sample1, 
+            Sample2, 
+            Sample3, 
+            Sample4) VALUES (
+            4, 
+            'FOB', 
+            1, 
+            'None',
+            '2594120608', 
+            'HF01.04', 
+            '', 
+            '', 
+            '', 
+            '', 
+            '', 
+            'Unknown',
+            'Black', 
+            4, 
+            NULL, 
+            NULL, 
+            NULL
+        )");        
+        $pdo->exec("INSERT INTO Media (
+            MediaIndex,
+            MediumType,
+            PrimarySample,
+            CISCode,
+            Printed1,
+            Printed2,
+            Printed3,
+            Printed4,
+            Printed5, 
+            Printed6, 
+            Printed7, 
+            Brand, 
+            Color, 
+            Sample1, 
+            Sample2, 
+            Sample3, 
+            Sample4) VALUES (
+            4, 
+            'FOB', 
+            1, 
+            'None',
+            '2594120608', 
+            'HF01.04', 
+            '', 
+            '', 
+            '', 
+            '', 
+            '', 
+            'Hochschule Esslingen',
+            'Brand Design', 
+            5, 
+            NULL, 
+            NULL, 
+            NULL
+        )");        
 
     } catch (\PDOException $e) {
     // If connection fails, stop the script and show the error

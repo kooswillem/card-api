@@ -62,7 +62,7 @@ try {
 </head>
 <body>
 
-    <h1>All Database Records</h1>
+    <h1>All Database Records - Samples</h1>
 
     <table>
         <thead>
