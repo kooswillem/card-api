@@ -31,6 +31,8 @@
             SampleTypeID VARCHAR(255),
             SampleConfigName VARCHAR(255)
         )");
+
+/*        
         $pdo->query("DROP TABLE IF EXISTS Configuration");
         $pdo->query("CREATE TABLE Configuration (
             ConfigDBIndex INT AUTO_INCREMENT PRIMARY KEY,
@@ -96,6 +98,7 @@
         )");
         */
         // 4. EXECUTE THE QUERY
+        /*
         $pdo->exec("INSERT INTO Brand (BrandName) VALUES ('Suica')");
         $pdo->exec("INSERT INTO Brand (BrandName) VALUES ('Sodexo')");
         $pdo->exec("INSERT INTO Brand (BrandName) VALUES ('HID Global')");
